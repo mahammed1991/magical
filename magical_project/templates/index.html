@@ -1,0 +1,210 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>human resource management</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/checkbox.css'%}"> 
+     <link rel="stylesheet" type="text/css" href="{% static 'css/googleapis.css'%}"> 
+</head>
+<body>
+
+<div class="container">
+<div class="row">
+<div class="col-md-8"><h2>Magical Resource Management </h2></div>
+<div class="col-md-4"><h2><h5><i class="fa fa-user" aria-hidden="true"></i> <a href="/admin">Admin Sign In</a></h5></h2></div>
+   
+  
+</div>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home"> <i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+    <li><a data-toggle="tab" href="#compny_menu1"> <i class="fa fa-building" aria-hidden="true"></i> Company</a></li>
+    <li><a data-toggle="tab" href="#emp_info_menu2"> <i class="fa fa-users" aria-hidden="true"></i> Employee Details</a></li>
+    <li><a data-toggle="tab" href="#job_opening_menu3"> <i class="fa fa-newspaper-o" aria-hidden="true"></i> Job Openings</a></li>
+    
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3>HOME</h3>
+       <section>
+            <div class="container-fluid">
+            <form id="search-form" >
+              <div class="row search-filter" >
+                 <div class="col-md-12" >
+                  <div class="input-group" >
+
+                  
+
+                   <input id="search-key" type="text" class="form-control" aria-label="Text input with segmented button dropdown" name="search-key" placeholder="Search Related Keys ...">
+                   <div class="input-group-btn" >
+                    <button id="searchBtn" type="submit" class="btn btn-secondary btn-search" >
+                    <span class="label-icon" ><i class="fa fa-search" aria-hidden="true"></i>  Search</span></button>
+                   </div>
+                  </div>
+                 </div>
+              </div>
+
+              <div class="row">
+                  <div class="checkbox-btn">
+                    <div class="col-md-3" >
+                        <input type="checkbox" value="job_opening" id="job_opening" name="job_opening" />
+                        <label for="job_opening" >Search Job Openigs</label>
+                     </div> 
+                    <div class="col-md-3" >
+                        <input type="checkbox" value="employee_info" id="employee_info" name="employee_info" />
+                        <label for="employee_info" >Search Employees On Role</label>
+                    </div>   
+                    <div class="col-md-3" >
+                        <input type="checkbox" value="company_info" id="company_info" name="company_info" />
+                        <label for="company_info" >Search Company</label>
+                    </div>  
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <div class="tbl-content">
+
+          <div class="list-search">
+            <div class="alert-box warning">No Record  !!! Please Try Some Other Key Words</div>
+          </div>
+            
+          </div>
+        </section>
+    </div>
+
+
+    <div id="compny_menu1" class="tab-pane fade">
+      <h3>Company</h3>
+      <section>
+          <div class="tbl-header">
+            <table class="">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Location</th>
+                  <th>Total Employees</th>
+                  <th>About Company</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tbody>
+
+              {% for each in compny%}
+                
+                <tr>
+                 <td>{{each.name}}</td>
+                 <td>{{each.location}}</td>
+                 <td>{{each.total_employees}}</td>
+                 <td>{{each.company_description}}</td>
+                </tr>
+              {% endfor %}
+
+              </tbody>
+              
+            </table>
+          </div>
+        </section>
+    </div>
+
+
+    <div id="emp_info_menu2" class="tab-pane fade">
+      <h3>Employee Details</h3>
+       <section>
+        
+          <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Company</th>
+                  <th>Age</th>
+                  <th>Role</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tbody>
+                
+               
+              {% for each in emp_info %}
+                
+                <tr>
+                 <td>{{each.name}}</td>
+                 <td>Name : {{each.company.name}}<br> Location : {{each.company.location}}</td>
+                 <td>{{each.age}}</td>
+                 <td>{{each.role}}</td>
+                </tr>
+              {% endfor %}
+                
+              </tbody>
+            </table>
+          </div>
+        </section>
+    </div>
+
+
+    <div id="job_opening_menu3" class="tab-pane fade">
+      <h3>Job Openings</h3>
+        <section>
+          <h1></h1>
+          <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <thead>
+                <tr>
+                  
+                  <th>Company</th>
+                  <th>Current Openings</th>
+                  <th>Role Description</th>
+                 
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tbody>
+                {% for each in job_openings %}
+                <tr>
+                <td>Name : {{each.associated_company.name}}<br> Location : {{each.associated_company.location}}</td>
+                 <td>{{each.role_name}}</td>
+                 <td>{{each.role_description}}</td>
+                
+                </tr>
+               {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+
+    </div>
+  </div>
+</div>
+
+  <footer class="footer">
+      <!-- my link -->
+      <div class="reg-with">
+       All rights reserved.
+        <a target="_blank" href="https://www.linkedin.com/in/mahammed-ashraf/">Mahammed Ashraf</a>
+      </div>
+  </footer>
+
+  </body>
+
+  <script src="{% static 'js/jquery.min.js'%}"></script>
+  <script src="{% static 'js/bootstrap.min.js'%}"></script>
+  <script src="{% static 'js/custom.js'%}"></script>
+
+</html>
