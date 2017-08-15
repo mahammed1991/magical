@@ -46,7 +46,7 @@ Run recipe-suggestion:
 6) Log in Admin (Where You can add Information)
 	http://127.0.0.1:8000/admin
 
-	username : root
+	username : root  ,
 	password : superuser
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
