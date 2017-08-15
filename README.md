@@ -21,7 +21,8 @@ Front End
 OS 
 	Ubuntu
 Database
-	Django Defualt (While Developing sqlite3 was default selected, You can Choose any DB)
+	Django Defualt (While Developing sqlite3 was default selected, You can Choose any DB / 
+	Dont change DB as of now Keep sqlite3 as it is to check working flow of the app)
 
 Run recipe-suggestion:
 
@@ -49,4 +50,22 @@ Run recipe-suggestion:
 	password : superuser
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Project Description 
+
+A simple django application for storing the details of the companies and employees
+
+After succefully running the app, we have different Tabs such as  Home, Company, Employee Details, and Job Openings
+We can find searching area within the home tab here search result is shown based on search keys, remaing tabs are can be used to see all listed data of as there tab name indicates.
+
+We have three filter option on home tab seacrhing 1) Search Job Openigs 2)Search Employees On Role 3)Search Company
+incase if you dont select any checkbox, searching result will come from all three tables, if you check any check box then searching result will be from checked respective table. 
+
+we also have a admin link at right top corner which directs to log in django admin panal where we can upload the information/data
+username : root and password is superuser
+
+ 
+ 
+
+
 

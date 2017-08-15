@@ -58,8 +58,6 @@ def search_result(request):
             compny_info_query = Company.objects.filter(is_active=True, name__contains= str(request.GET.get('search_key')))
             returing_data = returing_data + data_maker(job_openings_query, "Job Openings", "job") + data_maker(employee_info_query, "Employee Information", "employee") + data_maker(compny_info_query, "Company", "company")
         
-        print returing_data
-
         resp = {'success':True, 'msg':'suceesfully processed', 'data':returing_data}
     else:
         resp = {'success':False, 'msg':'No search key given', 'data':returing_data}
